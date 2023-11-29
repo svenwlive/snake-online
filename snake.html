@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Snake Online: Game</title>
   <style>
   html, body {
     height: 100%;
@@ -14,12 +14,21 @@
     align-items: center;
     justify-content: center;
   }
+
   canvas {
     border: 1px solid white;
+  }
+
+  .Page title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
   }
   </style>
 </head>
 <body>
+  <h1 id="Page title">Snake Online: Game</h1>
 <canvas width="400" height="400" id="game"></canvas>
 <script>
 var canvas = document.getElementById('game');
@@ -62,7 +71,7 @@ function loop() {
     return;
   }
 
-  count = 4;
+  count = 0;
   context.clearRect(0,0,canvas.width,canvas.height);
 
   // move snake by it's velocity
@@ -164,5 +173,6 @@ document.addEventListener('keydown', function(e) {
 // start the game
 requestAnimationFrame(loop);
 </script>
+
 </body>
 </html>
