@@ -64,5 +64,6 @@ h2 {
 }
 
 #Main_text {
+  display: inline-block;
   text-align: center;
 }
