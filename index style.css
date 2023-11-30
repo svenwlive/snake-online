@@ -61,6 +61,7 @@ h2 {
 }
 
 #Main_text {
+  margin: 0;
   display: inline-block;
   text-align: center;
   font-family: system-ui, sans-serif;
