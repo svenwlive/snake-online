@@ -54,6 +54,7 @@ h2 {
 
 #Play_snake_button {
   display: inline-block;
+  align-self: center;
   font-size: 5rem;
   font-family: system-ui, sans-serif;
   margin-left: auto;
@@ -62,14 +63,9 @@ h2 {
 
 #Main_text {
   margin: 0;
+  justify-content: center;
   display: inline-block;
   align-items: center;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-}
-
-#Main_text h3 {
-  display: inline-block;
   text-align: center;
   font-family: system-ui, sans-serif;
 }
