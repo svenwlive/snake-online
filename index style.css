@@ -52,7 +52,7 @@ h2 {
   text-align: center;
 }
 
-#Main_text Difficulty_select_button {
+#Play_snake_button {
   display: inline-block;
   min-width: 9rem;
   padding: 0.5rem;
