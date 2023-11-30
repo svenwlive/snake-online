@@ -57,7 +57,7 @@ h2 {
   size: 5rem;
 }
 
-#Main_text {
+#Main_text pre {
   display: inline-block;
   text-align: center;
 }
