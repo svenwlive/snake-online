@@ -54,13 +54,7 @@ h2 {
 
 #Play_snake_button {
   display: inline-block;
-  min-width: 9rem;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-  border: solid 1px #aaa;
-  text-align: center;
-  text-decoration: none;
-  color: #555;
+  size: 100%;
 }
 
 #Main_text {
