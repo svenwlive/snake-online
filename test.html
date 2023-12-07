@@ -118,6 +118,10 @@
           snake.dx = grid;
           snake.dy = 0;
 
+          // Reset the score
+          score = 0;
+          document.getElementById('score').innerHTML = "Score: " + score;
+
           apple.x = getRandomInt(0, 25) * grid;
           apple.y = getRandomInt(0, 25) * grid;
         }
