@@ -54,12 +54,13 @@ h2 {
 }
 
 #Play_snake_button {
-  position: absolute;
+  /* position: absolute; Remove this line */
   align-self: center;
   font-size: 5rem;
   font-family: system-ui, sans-serif;
-  top: 50%;
-  transform: translateX(-50%);
+  /* top: 50%; Remove this line */
+  /* transform: translateX(-50%); Remove this line */
+  margin-top: 20px; /* Add this line to create space above the button */
 }
 
 #Main_text {
@@ -69,5 +70,5 @@ h2 {
   align-items: center;
   text-align: center;
   font-family: system-ui, sans-serif;
-  position: relative;
+  /* position: relative; Remove this line */
 }
