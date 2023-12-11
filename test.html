@@ -27,11 +27,38 @@
     color: white;
     font-size: 18px;
   }
+
+  #game-over, #start-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 20px;
+  }
   </style>
 </head>
 <body>
+<div id="start-screen">
+  <p id="start-text">Welcome to the Snake Game!</p>
+  <button id="start-btn">Start Game</button>
+</div>
 <div id="score">Score: 0</div>
 <canvas width="400" height="400" id="game"></canvas>
+<div id="game-over">
+  <p>Game Over!</p>
+  <p>Your score: <span id="final-score"></span></p>
+  <button id="play-again-btn">Play Again</button>
+  <button id="home-btn">Home</button>
+</div>
 <script>
   'use strict';
 
@@ -41,6 +68,7 @@
   var grid = 16;
   var count = 0;
   var score = 0; // Score variable
+  var gameOver = false; // Game over flag
 
   var snake = {
     x: 160,
@@ -61,6 +89,10 @@
   }
 
   function loop() {
+    if (gameOver) {
+      return;
+    }
+
     requestAnimationFrame(loop);
 
     if (++count < 7) {
@@ -96,8 +128,12 @@
     context.fillStyle = 'red';
     context.fillRect(apple.x, apple.y, grid-1, grid-1);
 
-    context.fillStyle = 'green';
     snake.cells.forEach(function(cell, index) {
+      if (index === 0) {
+        context.fillStyle = 'orange';
+      } else {
+        context.fillStyle = 'green';
+      }
       context.fillRect(cell.x, cell.y, grid-1, grid-1);  
 
       if (cell.x === apple.x && cell.y === apple.y) {
@@ -111,19 +147,9 @@
 
       for (var i = index + 1; i < snake.cells.length; i++) {
         if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-          snake.x = 160;
-          snake.y = 160;
-          snake.cells = [];
-          snake.maxCells = 4;
-          snake.dx = grid;
-          snake.dy = 0;
-
-          // Reset the score
-          score = 0;
-          document.getElementById('score').innerHTML = "Score: " + score;
-
-          apple.x = getRandomInt(0, 25) * grid;
-          apple.y = getRandomInt(0, 25) * grid;
+          gameOver = true;
+          document.getElementById('game-over').style.display = 'block';
+          document.getElementById('final-score').innerText = score;
         }
       }
     });
@@ -148,7 +174,21 @@
     }
   });
 
-  requestAnimationFrame(loop);
+  document.getElementById('start-btn').addEventListener('click', function() {
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('score').style.display = 'block';
+    requestAnimationFrame(loop);
+  });
+
+  document.getElementById('play-again-btn').addEventListener('click', function() {
+    window.location.reload();
+  });
+
+  document.getElementById('home-btn').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  document.getElementById('start-screen').style.display = 'block';
 </script>
 </body>
 </html>
