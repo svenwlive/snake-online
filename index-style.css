@@ -62,11 +62,17 @@ h2 {
   /* top: 50%; Remove this line */
   /* transform: translateX(-50%); Remove this line */
   margin-top: 20px; /* Add this line to create space above the button */
-  background-color: #04AA6D;
+  background-color: white;
   border-radius: 8px;
-  color: white;
+  color: black;
   border: none;
   padding: 12px 28px;
+  transition-duration: 0.4s;
+}
+
+#Play_snake_button:hover {
+  background-color: #04AA6D;
+  color: white;
 }
 
 #Main_text {
