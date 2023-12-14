@@ -39,6 +39,7 @@ nav a[aria-current='page'] {
 
 main {
   padding: 1rem;
+  background-color: #2b2b2b;
 }
 
 h1 {
