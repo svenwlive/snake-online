@@ -3,6 +3,7 @@
 <head>
   <title>Snake Online: Playing hard</title>
   <link rel="stylesheet" href="snake-styles.css?v=1.1"/>
+  <link rel="icon" type="image/x-icon" href="favicon.jpg"/>
 </head>
 <body>
 <div id="start-screen">
@@ -20,6 +21,27 @@
 </div>
 <script>
   'use strict';
+
+  // COPY LINES 25 to 44 TO OTHER GAME PAGES
+  // Storing user's device details in a variable
+  let details = navigator.userAgent;
+
+  // Creating a regular expression containing some mobile devices keywords
+  let regexp = /android|iphone|kindle|ipad/i;
+
+  // Testing if the user agent string matches any mobile device
+  let isMobileDevice = regexp.test(details);
+
+  if (isMobileDevice) {
+    console.log("You are using a Mobile Device");
+    console.log("Game will not run here :(")
+    console.log("Redirecting...")
+    window.location.href = '../mobile-device' // Redirect mobile user to mobile error page
+  } else {
+    console.log("You are using Desktop!");
+    console.log("Game will continue running :)")
+  }
+  // COPY LINES 25 to 44 TO OTHER GAME PAGES
 
   var canvas = document.getElementById('game');
   var context = canvas.getContext('2d');
@@ -98,6 +120,7 @@
       if (cell.x === apple.x && cell.y === apple.y) {
         snake.maxCells++;
         score++; // Increase the score
+        console.log('score changed to ' + score); // Send score data to console
         document.getElementById('score').innerHTML = "Score: " + score; // Update the score display
 
         apple.x = getRandomInt(0, 25) * grid;
@@ -107,6 +130,8 @@
       for (var i = index + 1; i < snake.cells.length; i++) {
         if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
           gameOver = true;
+          console.log('gameOver changed to ' + gameOver)
+          console.log('final score for this game: ' + score)
           document.getElementById('game-over').style.display = 'block';
           document.getElementById('final-score').innerText = score;
         }

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="difficulty-select-style.css?v=1.1"/>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg"/>
     <title>Snake Online: Difficulty select</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -9,17 +10,20 @@
   </head>
   <body>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="snake_difficulty-select.html" aria-current="page">Play Snake!</a>
+      <a href="/">home</a>
+      <a href="snake_difficulty-select" aria-current="page">play Snake!</a>
     </nav>
     <main>
-      <h1>Choose your difficulty!</h1>
+      <h1>choose your difficulty!</h1>
       <div id="buttons">
-        <button type="button" id="snake-easy_play" onclick="document.location='gamemodes/snake_easy.html'">Easy</button>
-        <button type="button" id="snake-medium_play" onclick="document.location='gamemodes/snake_medium.html'">Medium</button>
-        <button type="button" id="snake-hard_play" onclick="document.location='gamemodes/snake_hard.html'">Hard</button>
-        <button type="button" id="snake-extreme_play" onclick="document.location='gamemodes/snake_extreme.html'">Extreme</button>
+        <button type="button" id="snake-easy_play" onclick="document.location='gamemodes/snake_easy'">easy</button>
+        <button type="button" id="snake-medium_play" onclick="document.location='gamemodes/snake_medium'">medium</button>
+        <button type="button" id="snake-hard_play" onclick="document.location='gamemodes/snake_hard'">hard</button>
+        <button type="button" id="snake-extreme_play" onclick="document.location='gamemodes/snake_extreme'">extreme</button>
       </div>
     </main>
+    <footer id="footer">
+      <p><a href="https://github.com/svenwlive" target="_blank">created by svenwlive</a></p>
+    </footer>
   </body>
 </html>
