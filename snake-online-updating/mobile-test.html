@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snake Online: Playing medium</title>
-  <link rel="stylesheet" href="snake-styles.css?v=1.1"/>
-  <link rel="icon" type="image/x-icon" href="favicon.jpg"/>
+  <title>Snake Online: Playing easy</title>
+  <link rel="stylesheet" href="gamemodes/snake-styles.css"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.jpg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #controls {
+      text-align: center; /* Center the buttons horizontally */
+      margin-top: 20px; /* Add some space between the game and buttons */
+    }
+    button {
+      margin: 5px; /* Add spacing between buttons */
+    }
+  </style>
 </head>
 <body>
 <div id="start-screen">
   <p id="start-text">Welcome to the Snake Game!</p>
-  <p id="difficulty-text">Difficulty: Medium</p>
+  <p id="difficulty-text">Difficulty: Easy</p>
   <button id="start-btn">Start Game</button>
 </div>
 <div id="score">Score: 0</div>
-<canvas width="600" height="600" id="game"></canvas>
+<canvas width="400" height="400" id="game"></canvas>
 <div id="game-over">
   <p>Game Over!</p>
   <p>Your score: <span id="final-score"></span></p>
   <button id="play-again-btn">Play Again</button>
   <button id="home-btn">Home</button>
 </div>
+<!-- ... (existing HTML code) ... -->
+
+<div id="controls">
+  <button id="up-btn">Up</button>
+  <button id="down-btn">Down</button>
+  <button id="left-btn">Left</button>
+  <button id="right-btn">Right</button>
+</div>
+
 <script>
+  // ... (existing JavaScript code) ...
   'use strict';
-
-  // COPY LINES 25 to 44 TO OTHER GAME PAGES
-  // Storing user's device details in a variable
-  let details = navigator.userAgent;
-
-  // Creating a regular expression containing some mobile devices keywords
-  let regexp = /android|iphone|kindle|ipad/i;
-
-  // Testing if the user agent string matches any mobile device
-  let isMobileDevice = regexp.test(details);
-
-  if (isMobileDevice) {
-    console.log("You are using a Mobile Device");
-    console.log("Game will not run here :(")
-    console.log("Redirecting...")
-    window.location.href = '../mobile-device' // Redirect mobile user to mobile error page
-  } else {
-    console.log("You are using Desktop!");
-    console.log("Game will continue running :)")
-  }
-  // COPY LINES 25 to 44 TO OTHER GAME PAGES
 
   var canvas = document.getElementById('game');
   var context = canvas.getContext('2d');
@@ -76,7 +75,7 @@
 
     requestAnimationFrame(loop); //speed of game
 
-    if (++count < 5) {
+    if (++count < 6) {
       return;
     }
 
@@ -138,6 +137,24 @@
       }
     });
   }
+
+  // Add touch event listeners for directional controls
+  document.getElementById('up-btn').addEventListener('click', () => {
+    snake.dx = 0;
+    snake.dy = -grid;
+  });
+  document.getElementById('down-btn').addEventListener('click', () => {
+    snake.dx = 0;
+    snake.dy = grid;
+  });
+  document.getElementById('left-btn').addEventListener('click', () => {
+    snake.dx = -grid;
+    snake.dy = 0;
+  });
+  document.getElementById('right-btn').addEventListener('click', () => {
+    snake.dx = grid;
+    snake.dy = 0;
+  });
 
   document.addEventListener('keydown', function(e) {
     if (e.which === 37 && snake.dx === 0) {

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Snake Online: Playing medium</title>
+  <title>Snake Online: Playing easy</title>
   <link rel="stylesheet" href="snake-styles.css?v=1.1"/>
-  <link rel="icon" type="image/x-icon" href="favicon.jpg"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.jpg"/>
 </head>
 <body>
 <div id="start-screen">
   <p id="start-text">Welcome to the Snake Game!</p>
-  <p id="difficulty-text">Difficulty: Medium</p>
+  <p id="difficulty-text">Difficulty: Easy</p>
   <button id="start-btn">Start Game</button>
 </div>
 <div id="score">Score: 0</div>
-<canvas width="600" height="600" id="game"></canvas>
+<canvas width="400" height="400" id="game"></canvas>
 <div id="game-over">
   <p>Game Over!</p>
   <p>Your score: <span id="final-score"></span></p>
@@ -76,7 +76,7 @@
 
     requestAnimationFrame(loop); //speed of game
 
-    if (++count < 5) {
+    if (++count < 6) {
       return;
     }
 
@@ -169,7 +169,7 @@
   });
 
   document.getElementById('home-btn').addEventListener('click', function() {
-    window.location.href = '../index.html';
+    window.location.href = '../';
   });
 
   document.getElementById('start-screen').style.display = 'block';
